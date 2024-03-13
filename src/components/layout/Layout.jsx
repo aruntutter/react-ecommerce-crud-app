@@ -5,7 +5,13 @@ const Layout = ({ children }) => {
   return (
     <div>
       <Navbar />
-      <div className="main-content">{children}</div>
+      {/* minHeight: "100vh"  this can also used*/}
+      <div
+        className="main-content"
+        style={{ flex: 1, minHeight: "calc(100vh - 50px)" }}
+      >
+        {children}
+      </div>
       <Footer />
     </div>
   );
