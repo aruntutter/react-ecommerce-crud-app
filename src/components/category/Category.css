@@ -25,7 +25,10 @@
 .category-image {
   width: 100px;
   height: 100px;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* position: relative; */
 }
 
 .category-image img {
@@ -65,7 +68,7 @@
     gap: 50px;
   }
 
-  .category-image img {
+  .category-image {
     width: 90px;
     height: 90px;
   }
@@ -76,7 +79,7 @@
     gap: 15px;
   }
 
-  .category-image img {
+  .category-image {
     width: 80px;
     height: 80px;
   }
@@ -88,6 +91,10 @@
 }
 
 @media screen and (max-width: 425px) {
+  .category-scroll {
+    gap: 5px;
+  }
+
   .category-image img {
     width: 50px;
     height: 50px;
