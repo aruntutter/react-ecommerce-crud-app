@@ -51,7 +51,7 @@ const Category = () => {
           <div className="category-item" key={index}>
             <div className="category-image">
               <img src={item.image} alt="img" />
-              <div class="overlay"></div>
+              {/* <div class="overlay"></div> */}
             </div>
             <h1 className="category-name">{item.name}</h1>
           </div>

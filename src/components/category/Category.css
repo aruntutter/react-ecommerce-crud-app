@@ -36,7 +36,7 @@
   cursor: pointer;
 }
 
-.category-image .overlay {
+/* .category-image .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -51,7 +51,7 @@
 .category-image:hover .overlay {
   opacity: 1;
   cursor: pointer;
-}
+} */
 
 .category-name {
   font-size: 1rem;
