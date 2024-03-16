@@ -1,1 +1,101 @@
 /* Footer.css */
+
+.footer {
+  width: 100%;
+  padding: 10px 10px;
+  background-color: #ffffff22;
+  color: #fff;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  width: 100px;
+  height: auto;
+}
+
+.footer-logo img {
+  width: 100%;
+  padding: 8px 0;
+}
+
+.left h2 {
+  height: 40px;
+  border-left: 2px solid #fff;
+}
+
+.social-icons ul {
+  padding: 0;
+  margin: 10px 0;
+}
+
+.social-icons ul li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.social-icons ul li svg {
+  color: #fff;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons ul li:hover svg {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+@media (max-width: 695px) {
+  .footer-logo {
+    width: 80px;
+  }
+
+  .footer p {
+    font-size: 14px;
+  }
+
+  .social-icons ul li svg {
+    font-size: 20px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .footer {
+    height: 55px;
+  }
+
+  .footer-logo {
+    width: 60px;
+  }
+
+  .footer-logo img {
+    padding: 0 0;
+  }
+
+  .footer p {
+    font-size: 13px;
+  }
+
+  .social-icons ul {
+    margin: 0 0;
+  }
+
+  .social-icons ul li {
+    margin: 0 5px;
+  }
+
+  .social-icons ul li svg {
+    font-size: 18px;
+  }
+}
