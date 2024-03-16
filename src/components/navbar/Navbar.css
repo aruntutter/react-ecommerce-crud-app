@@ -4,9 +4,10 @@
 
 .navbar {
   font-family: "Lato", sans-serif;
-  background-color: rgba(0, 0, 0, 0.02);
+  /* background-color: rgba(0, 0, 0, 0.02); */
+  background-color: #ffffff22;
   color: #ffffff;
-  padding: 20px 15px;
+  padding: 15px 15px;
   position: sticky;
   top: 0;
   z-index: 1;
