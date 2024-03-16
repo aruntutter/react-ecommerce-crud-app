@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "./HomePageProductCard.css";
 
 // productData
@@ -85,6 +86,9 @@ const productData = [
 ];
 
 const HomePageProductCard = () => {
+  // Navigate to ProductInfo
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="heading">
@@ -95,7 +99,10 @@ const HomePageProductCard = () => {
         {productData.map((item, index) => {
           const { image, title, price } = item;
           return (
-            <div className="product-card">
+            <div
+              className="product-card"
+              onClick={() => navigate("/productinfo")}
+            >
               <div className="product-image">
                 <img src={image} alt={title} className="product-image" />
               </div>
