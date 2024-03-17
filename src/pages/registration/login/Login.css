@@ -1,0 +1,114 @@
+/* Login.css */
+.login-container {
+  position: relative;
+  height: 100vh;
+  color: #166084;
+}
+
+.login-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-title {
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.input input {
+  width: 400px;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  color: #166084;
+  border-radius: 4px;
+}
+
+input::placeholder {
+  color: #166084;
+}
+
+.btn-login button {
+  width: 100px;
+  padding: 5px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  transition: box-shadow 0.2s;
+  color: #166084;
+}
+
+.btn-login button:hover {
+  cursor: pointer;
+}
+
+.btn-login button:active {
+  background-color: #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn-signup {
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
+.btn-signup .signup-link {
+  color: rgb(14, 14, 161);
+  text-decoration: underline;
+}
+
+/* Credential */
+.credential {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.credential .credential-heading {
+  text-decoration: underline;
+  text-align: center;
+}
+
+.admin-credential p:nth-child(1),
+.user-credential p:nth-child(1) {
+  text-decoration: underline;
+  font-size: 15px;
+}
+
+.user-credential {
+  margin-top: 10px;
+}
+
+.admin-credential p:nth-child(2),
+.user-credential p:nth-child(2) {
+  font-size: 14px;
+}
+
+.admin-credential p:nth-child(3),
+.user-credential p:nth-child(3) {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 450px) {
+
+  .login-page {
+    max-width: 350px;
+  }
+
+  .input input {
+    width: 250px;
+  }
+
+}
