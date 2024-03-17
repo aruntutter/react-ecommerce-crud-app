@@ -22,15 +22,15 @@ const Navbar = () => {
           </li>
           {/* All Products */}
           <li>
-            <Link to={"/"}>All</Link>
+            <Link to={"/allproduct"}>All</Link>
           </li>
           {/* Signup */}
           <li>
-            <Link to={"/"}>Signup</Link>
+            <Link to={"/signup"}>Signup</Link>
           </li>
           {/* Profile */}
           <li>
-            <Link to={"/"}>
+            <Link to={"/user-dashboard"}>
               <div className="profile-pic">
                 <HiUser />
               </div>
@@ -38,7 +38,7 @@ const Navbar = () => {
           </li>
           {/* Cart */}
           <li>
-            <Link to={"/"}>Cart-0</Link>
+            <Link to={"/cart"}>Cart-0</Link>
           </li>
         </ul>
       </div>
