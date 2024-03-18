@@ -1,0 +1,84 @@
+/* UserDashboard.css */
+
+/* User Detail */
+.user-profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 2rem 0;
+  border-bottom: 1px solid #fff;
+}
+
+.user-img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 8px;
+}
+
+.user-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.user-profile-section span {
+  font-size: 14px;
+}
+
+/* Order Detail */
+.order-detail-section {
+  color: #fff;
+}
+
+.order-detail-section h2 {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.order-detail-card {
+  margin: 1rem auto;
+  border: 1px solid #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.order-detail-card {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.card-left div p {
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 15px;
+  margin-bottom: 10px;
+}
+
+.card-left .order-status p {
+  color: #ddb72d;
+}
+
+.order-img {
+  width: 60px;
+  height: 60px;
+}
+
+.order-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.order-text-detail h5 {
+  margin-top: 10px;
+}
