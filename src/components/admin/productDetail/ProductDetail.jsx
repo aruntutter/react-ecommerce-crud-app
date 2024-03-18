@@ -1,6 +1,7 @@
 import "./ProductDetail.css";
 import { MdDeleteOutline } from "react-icons/md";
 import { MdOutlineEdit } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const ProductDetail = () => {
   return (
@@ -8,7 +9,9 @@ const ProductDetail = () => {
       <div className="product-detail-head">
         <h4>All Products</h4>
         <div className="add-product-btn">
-          <button>Add Product</button>
+          <Link to={"/addproduct"}>
+            <button>Add Product</button>
+          </Link>
         </div>
       </div>
       {/* Table */}
