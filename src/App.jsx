@@ -31,8 +31,8 @@ const App = () => {
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/addproduct" element={<AddProductPage />} />
           <Route path="/updateproduct" element={<UpdateProductPage />} />
-          <Toaster />
         </Routes>
+        <Toaster />
       </Router>
     </MyState>
   );
