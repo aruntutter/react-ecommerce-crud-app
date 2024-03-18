@@ -1,11 +1,10 @@
-import { Children } from "react";
 import MyContext from "./myContext";
 
-const myState = ({ Children }) => {
+const myState = ({ children }) => {
   const name = "Arun Kumar";
   return (
     <div>
-      <MyContext.Provider value={name}>{Children}</MyContext.Provider>
+      <MyContext.Provider value={name}>{children}</MyContext.Provider>
     </div>
   );
 };
