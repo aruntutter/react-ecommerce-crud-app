@@ -10,6 +10,7 @@ import Login from "./pages/registration/login/Login";
 import UserDashboard from "./pages/user/UserDashboard";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AddProductPage from "./pages/admin/addProductPage/AddProductPage";
+import UpdateProductPage from "./pages/admin/updateProductPage/UpdateProductPage";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/addproduct" element={<AddProductPage />} />
+          <Route path="/updateproduct" element={<UpdateProductPage />} />
         </Routes>
       </Router>
     </div>

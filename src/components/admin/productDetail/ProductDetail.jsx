@@ -33,9 +33,11 @@ const ProductDetail = () => {
                 <td>Name</td>
                 <td>
                   {/* Edit */}
-                  <button>
-                    <MdOutlineEdit />
-                  </button>
+                  <Link to={"/updateproduct"}>
+                    <button>
+                      <MdOutlineEdit />
+                    </button>
+                  </Link>
                   {/* Delete */}
                   <button>
                     <MdDeleteOutline />
