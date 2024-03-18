@@ -1,0 +1,95 @@
+/* AdminDashboard.css */
+
+.admin-dashboard h2 {
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.admin-profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 2rem 0;
+  border-bottom: 1px solid #fff;
+}
+
+.admin-img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 8px;
+}
+
+.admin-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
+.admin-profile-section span {
+  font-size: 14px;
+}
+
+/* Product/ Order/ User */
+.counts {
+  margin: 2rem 0;
+}
+
+.counts .tablist {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.counts .tablist .inner-list {
+  list-style: none;
+  padding: 1rem 1.5rem;
+  border: 1px solid #ccc;
+  color: #fff;
+  border-radius: 6px;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.counts .tablist .inner-list p {
+  font-size: 0.9rem;
+}
+
+.counts .tablist .inner-list::after {
+  content: "";
+  position: absolute;
+  color: slategray;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  transition: height 0.3s ease;
+  z-index: -1;
+  border-radius: 6px;
+}
+
+.counts .tablist .inner-list:hover::after {
+  height: 100%;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 465px) {
+  .counts {
+    margin: 0.5rem 0;
+  }
+
+  .counts .tablist .inner-list {
+    padding: 0.5rem 1rem;
+    width: 100px;
+  }
+}
