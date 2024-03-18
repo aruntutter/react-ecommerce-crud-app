@@ -1,0 +1,93 @@
+/* OrderDetail.css */
+
+.order-detail {
+  margin: 2rem 1rem;
+}
+
+.order-detail-head {
+  margin-bottom: 1rem;
+}
+
+/* Table */
+.order-detail-container {
+  border-left: 1px solid #e7e5e5;
+  border-right: 1px solid #e7e5e5;
+}
+
+.order-detail-table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+th,
+td {
+  min-width: 150px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #000;
+  text-align: center;
+}
+
+td {
+  color: #fff;
+}
+
+th {
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: #e7e5e5;
+  color: #166084;
+}
+
+td:nth-child(1),
+td:nth-child(2) {
+  border-right: 1px solid #e7e5e5;
+}
+
+td:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 25px;
+}
+
+th:nth-child(1),
+th:nth-child(3) {
+  width: 17%;
+}
+
+td button {
+  padding: 5px 10px;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #e7e5e5;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+td button:hover {
+  background-color: #e7e5e5;
+  color: #166084;
+}
+
+@media (max-width: 768px) {
+  .order-detail-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .order-detail-container {
+    margin: 1rem 0.5rem;
+  }
+
+  th,
+  td {
+    font-size: 13px;
+  }
+}
