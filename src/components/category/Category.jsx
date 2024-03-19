@@ -7,6 +7,7 @@ import iconLaptop from "../../assets/category-icons/laptop-icon.png";
 import iconShoe from "../../assets/category-icons/shoes-icon.png";
 import iconHome from "../../assets/category-icons/home-icon.png";
 import iconBook from "../../assets/category-icons/book-icon.png";
+import { useNavigate } from "react-router-dom";
 
 const category = [
   {
@@ -44,14 +45,19 @@ const category = [
 ];
 
 const Category = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="category-scroll-container">
       <div className="category-scroll">
         {category.map((item, index) => (
-          <div className="category-item" key={index}>
+          <div
+            className="category-item"
+            onClick={() => navigate(`/category/${item.name}`)}
+            key={index}
+          >
             <div className="category-image">
               <img src={item.image} alt="img" />
-              {/* <div class="overlay"></div> */}
             </div>
             <h1 className="category-name">{item.name}</h1>
           </div>
