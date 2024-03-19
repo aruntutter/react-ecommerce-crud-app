@@ -5,12 +5,29 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import myContext from "../../../context/myContext";
 import Loader from "../../loader/Loader";
+import { deleteDoc, doc } from "firebase/firestore";
+import { fireDb } from "../../../firebase/FirebaseConfig";
+import toast from "react-hot-toast";
 
 const ProductDetail = () => {
   const context = useContext(myContext);
-  const { loading, getAllProduct } = context;
+  const { loading, setLoading, getAllProduct, getAllProductFunction } = context;
 
   const navigate = useNavigate();
+
+  // Delete product
+  const deleteProduct = async (id) => {
+    setLoading(true);
+    try {
+      await deleteDoc(doc(fireDb, "products", id));
+      toast.success("Product Deleted successfully");
+      getAllProductFunction();
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="product-detail">
@@ -68,7 +85,10 @@ const ProductDetail = () => {
                         <MdOutlineEdit />
                       </button>
                       {/* Delete */}
-                      <button className="action-button">
+                      <button
+                        onClick={() => deleteProduct(id)}
+                        className="action-button"
+                      >
                         <MdDeleteOutline />
                       </button>
                     </td>
