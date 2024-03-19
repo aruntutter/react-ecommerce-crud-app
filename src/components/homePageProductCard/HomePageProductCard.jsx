@@ -25,7 +25,7 @@ const HomePageProductCard = () => {
             <div key={index} className="product-card">
               <div
                 className="product-image"
-                onClick={() => navigate("/productinfo")}
+                onClick={() => navigate(`/productinfo/${id}`)}
               >
                 <img
                   src={productImageUrl}
