@@ -17,6 +17,9 @@ const products = [
 ];
 
 const UserDashboard = () => {
+  // user
+  const user = JSON.parse(localStorage.getItem("users"));
+
   return (
     <Layout>
       <div className="user-dashboard">
@@ -29,10 +32,13 @@ const UserDashboard = () => {
             <img src={UserIcon} alt="user - Image" />
           </div>
           <p>
-            Name: <span>Arun Kumar</span>
+            Role: <span>{user?.role}</span>
           </p>
           <p>
-            Email: <span>User@gmail.com</span>
+            Name: <span>{user?.name}</span>
+          </p>
+          <p>
+            Email: <span>{user?.email}</span>
           </p>
         </div>
         {/* Order Details */}
