@@ -1,43 +1,69 @@
 import "./ProductInfo.css";
 import Layout from "../../components/layout/Layout";
+import { useContext, useEffect, useState } from "react";
+import myContext from "../../context/myContext";
+import { useParams } from "react-router-dom";
+import { fireDb } from "../../firebase/FirebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
+import Loader from "../../components/loader/Loader";
 
 const ProductInfo = () => {
+  const context = useContext(myContext);
+  const { loading, setLoading } = context;
+
+  const [product, setProduct] = useState("");
+
+  const { id } = useParams();
+
+  // getProductData
+  const getProductData = async () => {
+    setLoading(true);
+    try {
+      const productTemp = await getDoc(doc(fireDb, "products", id));
+      setProduct(productTemp.data());
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getProductData();
+  }, []);
   return (
     <Layout>
       <div className="product-info">
-        <div className="product-info-container">
-          <div className="product-custom-card">
-            {/* Thumbnail */}
-            <div className="product-custom-post-thumbnail">
-              <div className="product-thumbnail-img">
-                <img
-                  src="https://i.pinimg.com/564x/3e/05/ce/3e05cefbc7eec79ac175ea8490a67939.jpg"
-                  alt="shirt-image"
-                />
+        {loading ? (
+          <Loader />
+        ) : (
+          <div className="product-info-container">
+            <div className="product-custom-card">
+              {/* Thumbnail */}
+              <div className="product-custom-post-thumbnail">
+                <div className="product-thumbnail-img">
+                  <img src={product?.productImageUrl} alt={product?.title} />
+                </div>
               </div>
-            </div>
 
-            {/* Details */}
-            <div className="product-custom-post-details">
-              <div className="product-post-detail-text">
-                {/* Title */}
-                <h3>Hand Painted Blue Kaushalam Tea Pot in Aluminium</h3>
-                {/* Price */}
-                <h3>Rs.7,000</h3>
-                {/* Description */}
-                <p>
-                  Shop Hand Painted Blue Kaushalam Tea Pot in Aluminium,
-                  handmade by Mrinalika Jain. Fair pricing. Ethically made.
-                  Positive impact.
-                </p>
-                {/* Add to Cart Btn */}
-                <div className="product-info-add-to-cart-btn">
-                  <button>Add to Cart</button>
+              {/* Details */}
+              <div className="product-custom-post-details">
+                <div className="product-post-detail-text">
+                  {/* Title */}
+                  <h3>{product?.title}</h3>
+                  {/* Price */}
+                  <h3>&#8377;{product?.price}</h3>
+                  {/* Description */}
+                  <p>{product?.description}</p>
+                  {/* Add to Cart Btn */}
+                  <div className="product-info-add-to-cart-btn">
+                    <button>Add to Cart</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </Layout>
   );
