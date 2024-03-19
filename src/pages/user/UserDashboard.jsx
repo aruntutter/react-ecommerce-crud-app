@@ -1,5 +1,6 @@
 import "./UserDashboard.css";
 import Layout from "../../components/layout/Layout";
+import UserIcon from "../../assets/images/default-user-icon.png";
 
 const products = [
   {
@@ -19,14 +20,13 @@ const UserDashboard = () => {
   return (
     <Layout>
       <div className="user-dashboard">
+        {/* Heading */}
+        <h3>User Dashboard</h3>
         {/* User Detail */}
         <div className="user-profile-section">
           {/* Image */}
           <div className="user-img">
-            <img
-              src="https://media.licdn.com/dms/image/D5603AQFTO6H1GfGZJg/profile-displayphoto-shrink_400_400/0/1703827335820?e=1716422400&v=beta&t=djdsBokKKWUKVO86EIdKlPyfl7tJXJVE0yQXHdULM8M"
-              alt="user - Image"
-            />
+            <img src={UserIcon} alt="user - Image" />
           </div>
           <p>
             Name: <span>Arun Kumar</span>

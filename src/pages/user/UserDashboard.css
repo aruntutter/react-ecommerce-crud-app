@@ -1,5 +1,12 @@
 /* UserDashboard.css */
 
+.user-dashboard h3 {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
 /* User Detail */
 .user-profile-section {
   display: flex;
@@ -7,7 +14,7 @@
   align-items: center;
   justify-content: center;
   color: #fff;
-  padding: 2rem 0;
+  padding: 1rem 0;
   border-bottom: 1px solid #fff;
 }
 
