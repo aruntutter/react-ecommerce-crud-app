@@ -18,28 +18,43 @@ const ProductDetail = () => {
       <div className="container">
         <div className="table-wrapper">
           {/* table  */}
-          <table>
+          <table className="product-detail-table">
             <thead>
               <tr>
-                <th className="custom-th">S.No</th>
-                <th className="custom-th">Location Name</th>
-                <th className="custom-th">Action</th>
+                <th className="product-detail-custom-th">S.No</th>
+                <th className="product-detail-custom-th">Product Image</th>
+                <th className="product-detail-custom-th">Product Title</th>
+                <th className="product-detail-custom-th">Product Price</th>
+                <th className="product-detail-custom-th">Product Category</th>
+                <th className="product-detail-custom-th">Date</th>
+                <th className="product-detail-custom-th">Action</th>
               </tr>
             </thead>
             {/* tbody */}
             <tbody>
               <tr>
                 <td>1.</td>
-                <td>Name</td>
+                <td>
+                  <div className="product-detail-thumbnail">
+                    <img
+                      src="https://st.mngbcn.com/rcs/pics/static/T6/fotos/S20/67026731_01_D6.jpg?ts=1709900045822&imwidth=332&imdensity=2&impolicy=featured"
+                      alt=""
+                    />
+                  </div>
+                </td>
+                <td>Title</td>
+                <td>Price</td>
+                <td>Category</td>
+                <td>Date</td>
                 <td>
                   {/* Edit */}
                   <Link to={"/updateproduct"}>
-                    <button>
+                    <button className="action-button">
                       <MdOutlineEdit />
                     </button>
                   </Link>
                   {/* Delete */}
-                  <button>
+                  <button className="action-button">
                     <MdDeleteOutline />
                   </button>
                 </td>
