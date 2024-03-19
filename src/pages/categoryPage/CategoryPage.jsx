@@ -1,8 +1,11 @@
 import { useParams, useNavigate } from "react-router";
 import Layout from "../../components/layout/Layout";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import myContext from "../../context/myContext";
 import Loader from "../../components/loader/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, deleteFromCart } from "../../redux/cartSlice";
+import toast from "react-hot-toast";
 
 const CategoryPage = () => {
   const { categoryname } = useParams();
@@ -16,8 +19,34 @@ const CategoryPage = () => {
   const filterProduct = getAllProduct.filter((obj) =>
     obj.category.toLowerCase().includes(categoryname.toLowerCase())
   );
-  console.log(filterProduct);
-  console.log(categoryname);
+  // console.log(filterProduct);
+  // console.log(categoryname);
+
+  const cartItems = useSelector((state) => state.cart);
+
+  const dispatch = useDispatch();
+
+  // add to cart
+  const addCart = (item) => {
+    // console.log(item);
+    const { seconds, nanoseconds } = item.time;
+    const serializedItem = {
+      ...item,
+      time: { seconds, nanoseconds }, // Store only the serializable data
+    };
+    dispatch(addToCart(serializedItem));
+    toast.success("Add to cart");
+  };
+
+  // delete from cart
+  const deleteCart = (item) => {
+    dispatch(deleteFromCart(item));
+    toast.success("Removed from cart");
+  };
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   return (
     <Layout>
@@ -52,7 +81,15 @@ const CategoryPage = () => {
                       </h2>
                       <p className="product-price">&#8377;{price}</p>
                       <div className="add-to-cart-btn">
-                        <button>Add to Cart</button>
+                        {cartItems.some((p) => p.id === item.id) ? (
+                          <button onClick={() => deleteCart(item)}>
+                            Delete from cart
+                          </button>
+                        ) : (
+                          <button onClick={() => addCart(item)}>
+                            Add to cart
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>

@@ -6,6 +6,9 @@ import { useParams } from "react-router-dom";
 import { fireDb } from "../../firebase/FirebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 import Loader from "../../components/loader/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, deleteFromCart } from "../../redux/cartSlice";
+import toast from "react-hot-toast";
 
 const ProductInfo = () => {
   const context = useContext(myContext);
@@ -27,6 +30,32 @@ const ProductInfo = () => {
       setLoading(false);
     }
   };
+
+  const cartItems = useSelector((state) => state.cart);
+
+  const dispatch = useDispatch();
+
+  // add to cart
+  const addCart = (item) => {
+    // console.log(item);
+    const { seconds, nanoseconds } = item.time;
+    const serializedItem = {
+      ...item,
+      time: { seconds, nanoseconds }, // Store only the serializable data
+    };
+    dispatch(addToCart(serializedItem));
+    toast.success("Add to cart");
+  };
+
+  // delete from cart
+  const deleteCart = (item) => {
+    dispatch(deleteFromCart(item));
+    toast.success("Removed from cart");
+  };
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   useEffect(() => {
     getProductData();
@@ -57,7 +86,15 @@ const ProductInfo = () => {
                   <p>{product?.description}</p>
                   {/* Add to Cart Btn */}
                   <div className="product-info-add-to-cart-btn">
-                    <button>Add to Cart</button>
+                    {cartItems.some((p) => p.id === product.id) ? (
+                      <button onClick={() => deleteCart(product)}>
+                        Delete from cart
+                      </button>
+                    ) : (
+                      <button onClick={() => addCart(product)}>
+                        Add to cart
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
