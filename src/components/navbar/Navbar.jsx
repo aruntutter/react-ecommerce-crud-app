@@ -3,6 +3,7 @@ import SearchBar from "../searchBar/SearchBar";
 import Logo from "../../assets/images/ezbuy-logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { HiUser } from "react-icons/hi";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("users"));
@@ -16,6 +17,10 @@ const Navbar = () => {
     localStorage.clear("users");
     navigate("/login");
   };
+
+  // cartItems
+  const cartItems = useSelector((state) => state.cart);
+
   return (
     <div className="navbar">
       {/* Logo */}
@@ -70,7 +75,7 @@ const Navbar = () => {
           )}
           {/* Cart */}
           <li>
-            <Link to={"/cart"}>Cart-0</Link>
+            <Link to={"/cart"}>Cart({cartItems.length})</Link>
           </li>
         </ul>
       </div>
