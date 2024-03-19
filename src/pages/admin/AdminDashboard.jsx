@@ -6,6 +6,8 @@ import UserDetail from "../../components/admin/userDetail/UserDetail";
 import Layout from "../../components/layout/Layout";
 
 const AdminDashboard = () => {
+  const user = JSON.parse(localStorage.getItem("users"));
+
   return (
     <Layout>
       <div className="admin-dashboard">
@@ -20,10 +22,13 @@ const AdminDashboard = () => {
             />
           </div>
           <p>
-            Name: <span>Arun Kumar</span>
+            Role: <span>{user?.role}</span>
           </p>
           <p>
-            Email: <span>admin@gmail.com</span>
+            Name: <span>{user?.name}</span>
+          </p>
+          <p>
+            Email: <span>{user?.email}</span>
           </p>
         </div>
 
