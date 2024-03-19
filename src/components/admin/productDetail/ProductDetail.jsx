@@ -2,8 +2,14 @@ import "./ProductDetail.css";
 import { MdDeleteOutline } from "react-icons/md";
 import { MdOutlineEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import myContext from "../../../context/myContext";
+import Loader from "../../loader/Loader";
 
 const ProductDetail = () => {
+  const context = useContext(myContext);
+  const { loading, getAllProduct } = context;
+
   return (
     <div className="product-detail">
       <div className="product-detail-head">
@@ -14,6 +20,7 @@ const ProductDetail = () => {
           </Link>
         </div>
       </div>
+      {loading && <Loader />}
       {/* Table */}
       <div className="container">
         <div className="table-wrapper">
@@ -32,34 +39,39 @@ const ProductDetail = () => {
             </thead>
             {/* tbody */}
             <tbody>
-              <tr>
-                <td>1.</td>
-                <td>
-                  <div className="product-detail-thumbnail">
-                    <img
-                      src="https://st.mngbcn.com/rcs/pics/static/T6/fotos/S20/67026731_01_D6.jpg?ts=1709900045822&imwidth=332&imdensity=2&impolicy=featured"
-                      alt=""
-                    />
-                  </div>
-                </td>
-                <td>Title</td>
-                <td>Price</td>
-                <td>Category</td>
-                <td>Date</td>
-                <td>
-                  {/* Edit */}
-                  <Link to={"/updateproduct"}>
-                    <button className="action-button">
-                      <MdOutlineEdit />
-                    </button>
-                  </Link>
-                  {/* Delete */}
-                  <button className="action-button">
-                    <MdDeleteOutline />
-                  </button>
-                </td>
-              </tr>
-              {/* More rows can be added here */}
+              {getAllProduct.map((item, index) => {
+                const { id, title, price, category, date, productImageUrl } =
+                  item;
+                return (
+                  <tr key={index}>
+                    <td>{index + 1}.</td>
+                    <td>
+                      <div className="product-detail-thumbnail">
+                        <img src={productImageUrl} alt={title} />
+                      </div>
+                    </td>
+                    <td>{title}</td>
+                    <td>
+                      &#8377;
+                      {price}
+                    </td>
+                    <td>{category}</td>
+                    <td>{date}</td>
+                    <td>
+                      {/* Edit */}
+                      <Link to={"/updateproduct"}>
+                        <button className="action-button">
+                          <MdOutlineEdit />
+                        </button>
+                      </Link>
+                      {/* Delete */}
+                      <button className="action-button">
+                        <MdDeleteOutline />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
