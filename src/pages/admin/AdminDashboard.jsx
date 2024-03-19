@@ -4,10 +4,14 @@ import ProductDetail from "../../components/admin/productDetail/ProductDetail";
 import OrderDetail from "../../components/admin/orderDetail/OrderDetail";
 import UserDetail from "../../components/admin/userDetail/UserDetail";
 import Layout from "../../components/layout/Layout";
+import myContext from "../../context/myContext";
+import { useContext } from "react";
 
 const AdminDashboard = () => {
   const user = JSON.parse(localStorage.getItem("users"));
-
+  const context = useContext(myContext);
+  const { getAllProduct } = context;
+  console.log(getAllProduct.length);
   return (
     <Layout>
       <div className="admin-dashboard">
@@ -40,7 +44,7 @@ const AdminDashboard = () => {
                 {/* Product */}
                 <Tab className="inner-list">
                   <p>Products</p>
-                  <p>0</p>
+                  <p>{getAllProduct.length}</p>
                 </Tab>
                 {/* Order */}
                 <Tab className="inner-list">
