@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
+const initialState = JSON.parse(localStorage.getItem("cart")) ?? [];
 
 export const cartSlice = createSlice({
   name: "cart",
@@ -12,7 +12,7 @@ export const cartSlice = createSlice({
     deleteFromCart(state, action) {
       return state.filter((item) => item.id != action.payload.id);
     },
-    incrementQuantity: (state, action) => {
+    incrementQuantity(state, action) {
       state = state.map((item) => {
         if (item.id === action.payload) {
           item.quantity++;
