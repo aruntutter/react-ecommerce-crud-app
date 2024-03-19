@@ -1,7 +1,7 @@
 import "./ProductDetail.css";
 import { MdDeleteOutline } from "react-icons/md";
 import { MdOutlineEdit } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import myContext from "../../../context/myContext";
 import Loader from "../../loader/Loader";
@@ -9,6 +9,8 @@ import Loader from "../../loader/Loader";
 const ProductDetail = () => {
   const context = useContext(myContext);
   const { loading, getAllProduct } = context;
+
+  const navigate = useNavigate();
 
   return (
     <div className="product-detail">
@@ -59,11 +61,12 @@ const ProductDetail = () => {
                     <td>{date}</td>
                     <td>
                       {/* Edit */}
-                      <Link to={"/updateproduct"}>
-                        <button className="action-button">
-                          <MdOutlineEdit />
-                        </button>
-                      </Link>
+                      <button
+                        onClick={() => navigate(`/updateproduct/${id}`)}
+                        className="action-button"
+                      >
+                        <MdOutlineEdit />
+                      </button>
                       {/* Delete */}
                       <button className="action-button">
                         <MdDeleteOutline />

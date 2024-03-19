@@ -1,1 +1,93 @@
 /* UpdateProductPage.css */
+
+.update-product-page {
+  position: relative;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.update-product-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.update-product-heading h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #166084;
+  font-family: inherit;
+}
+
+.update-product-input-container input,
+select,
+textarea {
+  font-family: inherit;
+  width: 400px;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  color: #166084;
+  border-radius: 4px;
+
+  resize: none;
+  outline: none;
+}
+
+.update-product-input-container select {
+  padding: 5px 4px;
+}
+
+.update-product-input-container input::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: #166084;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.update-product-button-container button {
+  width: 100px;
+  padding: 5px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  transition: box-shadow 0.2s;
+  color: #166084;
+}
+
+.update-product-button-container button:hover {
+  cursor: pointer;
+}
+
+.update-product-button-container button:active {
+  background-color: #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 450px) {
+  .update-product-form {
+    max-width: 350px;
+  }
+
+  .update-product-input-container input,
+  select,
+  textarea {
+    width: 250px;
+  }
+}
