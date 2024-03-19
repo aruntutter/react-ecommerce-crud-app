@@ -165,7 +165,6 @@ const UpdateProductPage = () => {
               });
             }}
             className="update-product-select-field"
-            value={product.category}
           >
             <option disabled value="">
               Product Category
