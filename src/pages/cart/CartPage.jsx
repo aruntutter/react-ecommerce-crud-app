@@ -10,6 +10,9 @@ import {
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import BuyNowModal from "../../components/buyNowModal/BuyNowModal";
+import { Timestamp, addDoc, collection } from "firebase/firestore";
+import { fireDb } from "../../firebase/FirebaseConfig";
+import { Navigate } from "react-router";
 
 const CartPage = () => {
   const cartItems = useSelector((state) => state.cart);
@@ -53,6 +56,64 @@ const CartPage = () => {
   // BuyNowModal handle
   const handleBuyNowClick = () => {
     setShowBuyNowModal(true);
+  };
+
+  // user
+  const user = JSON.parse(localStorage.getItem("users"));
+
+  // Buy Now Function
+  const [addressInfo, setAddressInfo] = useState({
+    name: "",
+    address: "",
+    pincode: "",
+    mobileNumber: "",
+    time: Timestamp.now(),
+    date: new Date().toLocaleString("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+    }),
+  });
+
+  const buyNowFunction = () => {
+    // validation
+    if (
+      addressInfo.name === "" ||
+      addressInfo.address === "" ||
+      addressInfo.pincode === "" ||
+      addressInfo.mobileNumber === ""
+    ) {
+      return toast.error("All Fields are required");
+    }
+
+    // Order Info
+    const orderInfo = {
+      cartItems,
+      addressInfo,
+      email: user.email,
+      userid: user.uid,
+      status: "confirmed",
+      time: Timestamp.now(),
+      date: new Date().toLocaleString("en-US", {
+        month: "short",
+        day: "2-digit",
+        year: "numeric",
+      }),
+    };
+
+    try {
+      const orderRef = collection(fireDb, "order");
+      addDoc(orderRef, orderInfo);
+      setAddressInfo({
+        name: "",
+        address: "",
+        pincode: "",
+        mobileNumber: "",
+      });
+      toast.success("Order Placed Successfull");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -163,7 +224,19 @@ const CartPage = () => {
           </div>
         </div>
       </div>
-      {showBuyNowModal && <BuyNowModal />}
+      {user ? (
+        <>
+          {showBuyNowModal && (
+            <BuyNowModal
+              addressInfo={addressInfo}
+              setAddressInfo={setAddressInfo}
+              buyNowFunction={buyNowFunction}
+            />
+          )}
+        </>
+      ) : (
+        <Navigate to={"/login"} />
+      )}
     </Layout>
   );
 };

@@ -1,6 +1,6 @@
 import "./BuyNowModal.css";
 
-const BuyNowModal = () => {
+const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
   return (
     <div className={`buy-now-page ${open ? "modal-open" : ""}`}>
       {/* Buy Now Form */}
@@ -14,6 +14,13 @@ const BuyNowModal = () => {
           <input
             type="text"
             name="name"
+            value={addressInfo.name}
+            onChange={(e) => {
+              setAddressInfo({
+                ...addressInfo,
+                name: e.target.value,
+              });
+            }}
             placeholder="Your Name"
             className="buy-now-input-field"
           />
@@ -23,6 +30,13 @@ const BuyNowModal = () => {
           <input
             type="text"
             name="address"
+            value={addressInfo.address}
+            onChange={(e) => {
+              setAddressInfo({
+                ...addressInfo,
+                address: e.target.value,
+              });
+            }}
             placeholder="Your Address"
             className="buy-now-input-field"
           />
@@ -32,6 +46,13 @@ const BuyNowModal = () => {
           <input
             type="text"
             name="pincode"
+            value={addressInfo.pincode}
+            onChange={(e) => {
+              setAddressInfo({
+                ...addressInfo,
+                pincode: e.target.value,
+              });
+            }}
             placeholder="Pin Code"
             className="buy-now-input-field"
           />
@@ -41,13 +62,27 @@ const BuyNowModal = () => {
           <input
             type="tel"
             name="mobile"
+            value={addressInfo.mobileNumber}
+            onChange={(e) => {
+              setAddressInfo({
+                ...addressInfo,
+                mobileNumber: e.target.value,
+              });
+            }}
             placeholder="Mobile Number"
             className="buy-now-input-field"
           />
         </div>
         {/* Buy Now Button */}
         <div className="buy-now-button-container">
-          <button type="button">Buy Now</button>
+          <button
+            onClick={() => {
+              buyNowFunction();
+            }}
+            type="button"
+          >
+            Place Order
+          </button>
         </div>
       </div>
     </div>
