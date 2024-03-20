@@ -14,6 +14,7 @@ import BuyNowModal from "../../components/buyNowModal/BuyNowModal";
 const CartPage = () => {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
   // Buy Now Modal
   const [showBuyNowModal, setShowBuyNowModal] = useState(false);
 
@@ -162,9 +163,7 @@ const CartPage = () => {
           </div>
         </div>
       </div>
-      {showBuyNowModal && (
-        <BuyNowModal onClose={() => setShowBuyNowModal(false)} />
-      )}
+      {showBuyNowModal && <BuyNowModal />}
     </Layout>
   );
 };

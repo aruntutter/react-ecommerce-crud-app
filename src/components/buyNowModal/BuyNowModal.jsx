@@ -1,22 +1,13 @@
 import "./BuyNowModal.css";
 
-const BuyNowModal = ({ onClose }) => {
-  const handleClose = () => {
-    if (onClose) {
-      onClose();
-    }
-  };
+const BuyNowModal = () => {
   return (
-    <div className="buy-now-page">
+    <div className={`buy-now-page ${open ? "modal-open" : ""}`}>
       {/* Buy Now Form */}
       <div className="buy-now-form">
         {/* Top Heading */}
         <div className="buy-now-heading">
           <h2>Buy Now</h2>
-          {/* Close Button */}
-          <button className="close-button" onClick={handleClose}>
-            X
-          </button>
         </div>
         {/* Name Input */}
         <div className="buy-now-input-container">
