@@ -55,14 +55,13 @@
   justify-content: center;
   padding: 5px;
   border-radius: 8px;
+  width: fit-content;
+  gap: 5rem;
 }
 
-.order-detail-card {
-  width: fit-content;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 5rem;
+.card-left,
+.card-right {
+  width: 140px;
 }
 
 .card-left div p {
@@ -77,8 +76,10 @@
 }
 
 .order-img {
-  width: 60px;
+  width: 100px;
   height: 60px;
+  border-radius: 4px;
+  border: 1px solid;
 }
 
 .order-img img {
