@@ -45,22 +45,6 @@
   border-radius: 8px;
 }
 
-.cart-product-details div span {
-  margin-left: 10px;
-}
-
-.cart-product-details div span:nth-child(2) {
-  margin-left: 10px;
-  color: #ddb72d;
-  font-size: 0.9rem;
-}
-
-.cart-product-details div del {
-  margin-right: 10px;
-  color: #ccc;
-  font-size: 0.8rem;
-}
-
 .cart-action {
   width: 200px;
   display: flex;
@@ -89,6 +73,11 @@
   cursor: default;
 }
 
+.cart-empty {
+  font-size: 1.3rem;
+  color: #ddb72d;
+}
+
 /* price Details */
 .pricing {
   text-align: center;
@@ -110,6 +99,12 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+.discount p:nth-child(2),
+.delivery p:nth-child(2) {
+  color: #ddb72d;
+}
+
 
 .cart-buy-now-btn button {
   width: 310px;
