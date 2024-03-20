@@ -23,7 +23,7 @@ const ProductInfo = () => {
     setLoading(true);
     try {
       const productTemp = await getDoc(doc(fireDb, "products", id));
-      setProduct(productTemp.data());
+      setProduct({ ...productTemp.data(), id: productTemp.id });
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -38,12 +38,7 @@ const ProductInfo = () => {
   // add to cart
   const addCart = (item) => {
     // console.log(item);
-    const { seconds, nanoseconds } = item.time;
-    const serializedItem = {
-      ...item,
-      time: { seconds, nanoseconds }, // Store only the serializable data
-    };
-    dispatch(addToCart(serializedItem));
+    dispatch(addToCart(item));
     toast.success("Add to cart");
   };
 
