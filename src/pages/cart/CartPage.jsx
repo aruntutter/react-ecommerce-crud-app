@@ -8,11 +8,14 @@ import {
   incrementQuantity,
 } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import BuyNowModal from "../../components/buyNowModal/BuyNowModal";
 
 const CartPage = () => {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  // Buy Now Modal
+  const [showBuyNowModal, setShowBuyNowModal] = useState(false);
 
   const deleteCart = (item) => {
     dispatch(deleteFromCart(item));
@@ -45,6 +48,11 @@ const CartPage = () => {
   const discountPercentage = 8;
   const discountAmount = (originalAmount * discountPercentage) / 100;
   const totalAmount = originalAmount - discountAmount.toFixed(0);
+
+  // BuyNowModal handle
+  const handleBuyNowClick = () => {
+    setShowBuyNowModal(true);
+  };
 
   return (
     <Layout>
@@ -146,7 +154,7 @@ const CartPage = () => {
                   </div>
                   {/* Buy Button */}
                   <div className="cart-buy-now-btn">
-                    <button>Buy Now</button>
+                    <button onClick={handleBuyNowClick}>Buy Now</button>
                   </div>
                 </div>
               </div>
@@ -154,6 +162,9 @@ const CartPage = () => {
           </div>
         </div>
       </div>
+      {showBuyNowModal && (
+        <BuyNowModal onClose={() => setShowBuyNowModal(false)} />
+      )}
     </Layout>
   );
 };
