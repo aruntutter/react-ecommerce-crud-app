@@ -1,5 +1,4 @@
 /* ProductDetail.css */
-
 .product-detail {
   margin: 2rem 1rem;
 }
@@ -34,7 +33,7 @@
 }
 
 .product-detail-custom-th {
-  min-width: 150px;
+  min-width: 200px;
   padding: 15px;
   text-align: center;
   font-size: 0.9rem;
@@ -48,14 +47,6 @@
   background-color: rgba(255, 255, 255, 0.2);
   text-align: center;
   font-size: 0.9rem;
-}
-
-.product-detail-table td:nth-child(1) {
-  border-right: 0;
-}
-
-.product-detail-table td:nth-child(2) {
-  border-right: 0;
 }
 
 .product-detail-table .product-detail-thumbnail {
