@@ -61,7 +61,7 @@
 
 .card-left,
 .card-right {
-  width: 140px;
+  max-width: 110px;
 }
 
 .card-left div p {
