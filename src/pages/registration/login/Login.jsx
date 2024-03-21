@@ -143,7 +143,7 @@ const Login = () => {
           </div>
           <div className="user-credential">
             <p>User</p>
-            <p>Email: user@gmail.com</p>
+            <p>Email: user01@gmail.com</p>
             <p>password: 12345678</p>
           </div>
         </div>
