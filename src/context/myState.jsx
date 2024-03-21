@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
 import MyContext from "./myContext";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import { fireDb } from "../firebase/FirebaseConfig";
+import toast from "react-hot-toast";
 
 const myState = ({ children }) => {
   const [loading, setLoading] = useState(false);
@@ -50,6 +58,20 @@ const myState = ({ children }) => {
     }
   };
 
+  // Delete oder Function
+  const orderDelete = async (id) => {
+    setLoading(true);
+    try {
+      await deleteDoc(doc(fireDb, "order", id));
+      toast.success("Order Deleted successfully");
+      getAllOrderFunction();
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     getAllProductFunction();
     getAllOrderFunction();
@@ -64,6 +86,7 @@ const myState = ({ children }) => {
           getAllProduct,
           getAllProductFunction,
           getAllOrder,
+          orderDelete,
         }}
       >
         {children}

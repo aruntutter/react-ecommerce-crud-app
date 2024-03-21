@@ -5,7 +5,7 @@ import { MdDeleteOutline } from "react-icons/md";
 
 const OrderDetail = () => {
   const context = useContext(myContext);
-  const { getAllOrder } = context;
+  const { getAllOrder, orderDelete } = context;
 
   return (
     <div className="order-detail">
@@ -86,7 +86,10 @@ const OrderDetail = () => {
                           <td className="date">{order.date}</td>
                           <td className="order-action">
                             {/* Delete */}
-                            <button className="order-action-button">
+                            <button
+                              onClick={() => orderDelete(order.id)}
+                              className="order-action-button"
+                            >
                               <MdDeleteOutline />
                             </button>
                           </td>
