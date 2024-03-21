@@ -85,6 +85,7 @@ input::placeholder {
 .user-credential p:nth-child(1) {
   text-decoration: underline;
   font-size: 15px;
+  text-align: left;
 }
 
 .user-credential {
@@ -94,11 +95,15 @@ input::placeholder {
 .admin-credential p:nth-child(2),
 .user-credential p:nth-child(2) {
   font-size: 14px;
+  text-align: left;
+  padding: 0;
 }
 
 .admin-credential p:nth-child(3),
 .user-credential p:nth-child(3) {
   font-size: 14px;
+  text-align: left;
+  padding: 0;
 }
 
 @media screen and (max-width: 450px) {
