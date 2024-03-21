@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import myContext from "../../../context/myContext";
@@ -20,6 +20,18 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    const user = localStorage.getItem("users");
+    if (user) {
+      const parsedUser = JSON.parse(user);
+      if (parsedUser.role === "user") {
+        navigate("/user-dashboard");
+      } else {
+        navigate("/admin-dashboard");
+      }
+    }
+  }, [navigate]);
 
   // user login function
   const userLoginFunction = async () => {
