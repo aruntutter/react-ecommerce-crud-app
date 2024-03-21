@@ -153,7 +153,7 @@ const AddProductPage = () => {
             }}
             className="add-product-select-field"
           >
-            <option disabled selected>
+            <option value="" disabled>
               Product Category
             </option>
             {categoryList.map((value, index) => {
