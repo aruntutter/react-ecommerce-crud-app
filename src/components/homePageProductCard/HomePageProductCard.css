@@ -15,7 +15,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .product-card {
@@ -46,7 +46,6 @@
 .product-details {
   display: flex;
   flex-direction: column;
-  margin-top: 5px;
 }
 
 .website-name {
@@ -58,16 +57,14 @@
   font-size: 1rem;
   font-weight: 400;
   color: #fff;
+  text-align: center;
 }
 
 .product-price {
   font-size: 0.9rem;
   color: #ccc;
-  margin-top: 5px;
-}
-
-.add-to-cart-btn {
-  margin-top: 10px;
+  padding: 0;
+  margin-bottom: 5px;
 }
 
 .add-to-cart-btn button {
