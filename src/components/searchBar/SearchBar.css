@@ -27,10 +27,12 @@ input:focus {
 .search-results {
   position: absolute;
   top: calc(100% + 5px);
-  left: 1;
+  left: 0;
   height: auto;
   width: 90%;
-  z-index: 1000;
+  z-index: 999;
+  background-color: #166084;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Image */
@@ -58,11 +60,6 @@ p {
 
   .search-input {
     width: 70vw;
-  }
-
-  .search-results {
-    background-color: #166084;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   .search-results-title {
