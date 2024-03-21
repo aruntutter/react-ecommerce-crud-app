@@ -10,7 +10,7 @@ import { useContext } from "react";
 const AdminDashboard = () => {
   const user = JSON.parse(localStorage.getItem("users"));
   const context = useContext(myContext);
-  const { getAllProduct } = context;
+  const { getAllProduct, getAllOrder } = context;
   console.log(getAllProduct.length);
   return (
     <Layout>
@@ -49,7 +49,7 @@ const AdminDashboard = () => {
                 {/* Order */}
                 <Tab className="inner-list">
                   <p>Orders</p>
-                  <p>0</p>
+                  <p>{getAllOrder.length - 1}</p>
                 </Tab>
                 {/* User */}
                 <Tab className="inner-list">
