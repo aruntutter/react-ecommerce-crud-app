@@ -59,7 +59,7 @@ const OrderDetail = () => {
                         orderIndex * order.cartItems.length + itemIndex;
                       return (
                         <tr key={serialNumber}>
-                          <td className="serial-number">{serialNumber}.</td>
+                          <td className="serial-number">{serialNumber + 1}.</td>
                           <td className="order-detail-uid">{id}</td>
                           <td className="order-detail-custom-td image">
                             <div className="order-detail-img">
