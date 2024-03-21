@@ -23,7 +23,7 @@ Welcome to ezBuy E-Commerce ReactMarket! This project is a full-fledged e-commer
 
 ## Demo
 
-Check out the live demo of ezBuy E-Commerce ReactMarket [here](https://ez-buy.netlify.app/)!
+Check out the live demo of ezBuy E-Commerce ReactMarket [here](https://react-ecommerce-crud-app.vercel.app/)!
 
 ## Features
 
