@@ -60,7 +60,7 @@ const OrderDetail = () => {
                       return (
                         <tr key={serialNumber}>
                           <td className="serial-number">{serialNumber}.</td>
-                          <td className="order-id">{id}</td>
+                          <td className="order-detail-uid">{id}</td>
                           <td className="order-detail-custom-td image">
                             <div className="order-detail-img">
                               <img src={productImageUrl} alt={title} />
