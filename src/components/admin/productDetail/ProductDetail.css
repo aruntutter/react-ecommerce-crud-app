@@ -86,10 +86,6 @@
 }
 
 @media (max-width: 768px) {
-  .product-detail {
-    margin: 2rem 0.2rem;
-  }
-
   .table-wrapper {
     overflow-x: auto;
   }
