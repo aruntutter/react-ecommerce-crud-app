@@ -80,6 +80,9 @@ const UserDashboard = () => {
                         <p>{category}</p>
                         <p>x {quantity}</p>
                         <h5>&#8377; {price}</h5>
+                        <h5>
+                          <span>Total:</span> &#8377; {price * quantity}
+                        </h5>
                       </div>
                     </div>
                   );
