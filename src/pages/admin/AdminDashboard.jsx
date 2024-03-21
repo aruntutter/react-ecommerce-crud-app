@@ -49,7 +49,7 @@ const AdminDashboard = () => {
                 {/* Order */}
                 <Tab className="inner-list">
                   <p>Orders</p>
-                  <p>{getAllOrder.length - 1}</p>
+                  <p>{getAllOrder.length}</p>
                 </Tab>
                 {/* User */}
                 <Tab className="inner-list">
